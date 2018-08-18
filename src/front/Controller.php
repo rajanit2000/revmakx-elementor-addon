@@ -49,7 +49,7 @@ class Controller {
 	 */
 	public function __construct( $revmakx, $version ) {
 
-		$this->revmakx = $revmakx;
+		$this->plugin_name = $revmakx;
 		$this->version = $version;
 
 	}
@@ -74,7 +74,7 @@ class Controller {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->revmakx, plugin_dir_url( __FILE__ ) . 'css/revmakx-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/revmakx-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -98,7 +98,7 @@ class Controller {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->revmakx, plugin_dir_url( __FILE__ ) . 'js/revmakx-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/revmakx-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 

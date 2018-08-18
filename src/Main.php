@@ -45,7 +45,7 @@ class Main {
 	 * @access   protected
 	 * @var      string    $revmakx    The string used to uniquely identify this plugin.
 	 */
-	protected $revmakx;
+	protected $plugin_name;
 
 
 	/**
@@ -69,7 +69,7 @@ class Main {
 	 */
 	public function __construct() {
 
-		$this->revmakx = 'revmakx';
+		$this->plugin_name = 'Revmakx';
 		$this->version = '1.0.0';
 		$this->loader = new utils\Loader();
 
@@ -96,6 +96,8 @@ class Main {
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
+		$this->loader->add_action( 'elementor/widgets/widgets_registered', $this, 'include_widgets' );
+
 	}
 
 
@@ -113,7 +115,17 @@ class Main {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$this->loader->add_action( 'elementor/widgets/widgets_registered', $this, 'include_widgets' );
+
 	}
+
+	public function include_widgets()
+    {
+        $widgets_manager = \Elementor\Plugin::instance()->widgets_manager;
+
+        /* Load Elementor Addon Elements */
+        $widgets_manager->register_widget_type( new widget\ImageListWidget() );
+    }
 
 
 	/**
@@ -151,7 +163,7 @@ class Main {
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_revmakx() {
-		return $this->revmakx;
+		return $this->plugin_name;
 	}
 
 

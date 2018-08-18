@@ -1,0 +1,28 @@
+{
+	"name" : "vendor/revmakx",
+	"description" : "The description of your plugin.",
+	"type" : "wordpress-plugin",
+	"keywords" : [ "wordpress" ],
+	"license" : "GPL-2.0+",
+	"authors" : [
+		{
+			"name" : "David Aguilera",
+			"email" : "david.aguilera@neliosoftware.com",
+			"role" : "Lead Developer"
+		},
+		{
+			"name" : "Antonio Villegas",
+			"email" : "antonio.villegas@neliosoftware.com",
+			"role" : "Developer"
+		}
+	],
+	"autoload" : {
+		"psr-4" : {
+			"revmakx\\" : "src"
+		}
+	},
+	"require" : {
+		"php" : ">=5.3.0"
+	},
+	"homepage" : "http://example.com/revmakx"
+}

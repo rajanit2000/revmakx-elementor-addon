@@ -125,6 +125,8 @@ class Main {
 
         /* Load Elementor Addon Elements */
         $widgets_manager->register_widget_type( new widget\ImageListWidget() );
+
+        $widgets_manager->register_widget_type( new widget\InfoBoxWidget() );
     }
 
 

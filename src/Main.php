@@ -127,6 +127,9 @@ class Main {
         $widgets_manager->register_widget_type( new widget\ImageListWidget() );
 
         $widgets_manager->register_widget_type( new widget\InfoBoxWidget() );
+
+        $widgets_manager->register_widget_type( new widget\InfoBoxCarousel() );
+
     }
 
 
